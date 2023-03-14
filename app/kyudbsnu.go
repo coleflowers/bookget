@@ -48,7 +48,7 @@ func (k KyudbSnu) download() (msg string, err error) {
 	if err != nil || bs == nil {
 		return "requested URL was not found.", err
 	}
-	match := regexp.MustCompile(`item_cd=([A-z0-9_-]+)`).FindSubmatch(bs)
+	match := regexp.MustCompile(`var item_cd = '([A-z0-9_-]+)'`).FindSubmatch(bs)
 	if match == nil {
 		return "requested URL was not found.", err
 	}
